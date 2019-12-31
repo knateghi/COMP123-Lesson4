@@ -11,7 +11,10 @@ namespace COMP123_Lesson4
     /// 
     /// </summary>
     public class Program
+
+        
     {
+
         public static void Main(string[] args)
         {
             //creating an insance of the Person class
@@ -41,16 +44,71 @@ namespace COMP123_Lesson4
             mary.ShowAge();
             Console.WriteLine();
 
-            Student tommy = new Student("Tommy",20,"S123456789");
+            Student tommy = new Student("Tommy", 20, "S123456789");
             tommy.Age = 20;
             tommy.SayHello();
             tommy.Studies();
+            tommy.Courses.Add(new Course("COMP123", "Programming2"));
+            tommy.Courses.Add(new Course("COM125", "Web Design"));
+            tommy.ShowCourses();
 
             //create an instance of Teacher class
             Teacher tomm = new Teacher("Tom", 47, "T123456789");
             tomm.Teaches();
 
+            MyList myList = new MyList();
+            myList.Add(1);
+            myList.Add(2);
+            myList.Clear();
+            myList.Print();
+
+            //creating a list of strings
+            List<string> names = new List<string>();
+            names.Add("Tom");
+            names.Add("Mary");
+
+            int count = 0;
+            foreach (var name in names)
+            {
+                Console.WriteLine($"{name} ");
+                count++;
+            }
+            Console.WriteLine($"count= {count}");
+            List<Card> Deck = new List<Card>();
+
+            CreateDeck(Deck);
         }
+        public static void CreateDeck(List<Card> deck)
+        {
+            string suit = "";
+            for(int i = 0; i < 4; i++)
+            {
+                switch (i)
+                {
+                    case 0:
+                        suit = "hearts";
+                        break;
+                    case 1:
+                        suit = "clubs";
+                        break;
+                    case 2:
+                        suit = "diamonds";
+                        break;
+                    case 3:
+                        suit = "spades";
+                        break;
+                }
+            }
+            for(int face = 1; face < 14; face++)
+            {
+                deck.Add(new Card(face, suit));
+            }
+        }
+
     }
 
+
+
 }
+
+

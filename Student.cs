@@ -10,8 +10,19 @@ namespace COMP123_Lesson4
     {
         //private instance variables=============================
         private string _studentID;
+        private List<Course> _courses=new List<Course>();
         //public properties=====================================
-        public string StundentID { get=>this._studentID; set=>this._studentID=value; }
+        public string StundentID
+        {
+            get => this._studentID;
+            set
+            {
+
+                this._studentID = value;
+
+            }
+        }
+        public List<Course> Courses { get => this._courses; }
         /*
          * <summary>
          * this is the empty /default constructor for the Student
@@ -23,6 +34,7 @@ namespace COMP123_Lesson4
          {
             this.StundentID = studentID;
          }
+      
         //public methods=================================================
         /// <summary>
         /// this method enables the study behaviour with the student
@@ -30,6 +42,19 @@ namespace COMP123_Lesson4
         public void Studies()
         {
             Console.WriteLine(this.Name+" studies");
+        }
+        public void ShowCourses()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Course list");
+            Console.WriteLine("======================================");
+            foreach(Course course in this.Courses)
+            {
+                Console.WriteLine($"{course.Code}  {course.Description}");
+            }
+            Console.WriteLine("======================================");
+            Console.WriteLine();
+
         }
     }
 }
