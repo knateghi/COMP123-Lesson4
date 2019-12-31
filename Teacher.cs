@@ -25,7 +25,8 @@ namespace COMP123_Lesson4
             this.EmployeeID = employeeID;
         }
        //public methods=============================================
-       public void Teaches()
+       
+        public void Teaches()
         {
             Console.WriteLine(this.Name+" teaches");
         }
